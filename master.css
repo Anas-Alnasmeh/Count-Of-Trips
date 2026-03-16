@@ -1,0 +1,245 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.parent {
+    box-shadow: 10px 10px 16px 0 #939393;
+    background-color: #eee;
+    width: clamp(300px, 70vw, 540px);
+    padding: 30px;
+    height: calc(100vh - 60px);
+    text-align: center;
+    margin: 30px auto;
+    position: relative;
+    border-radius: 12px;
+}
+
+.parent .info {
+    display: flex;
+    justify-content: center;
+}
+
+.parent .info div {
+    font-size: 15px;
+    width: 50%;
+}
+
+.parent .info div span {
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+button.add {
+    width: 100%;
+    height: 60px;
+    background-color: #00bcd4;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+button:hover {
+    opacity: .8;
+}
+
+/***** Circle *****/
+
+:root {
+    --circleSize: clamp(220px, 30vw, 260px);
+}
+
+.circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -55%);
+}
+
+svg {
+    width: var(--circleSize);
+    height: var(--circleSize);
+    fill: none;
+    stroke-width: clamp(14px, 2vw, 18px);
+    transform: rotate(-90deg);
+}
+
+svg circle {
+    cx: calc(var(--circleSize) / 2);
+    cy: calc(var(--circleSize) / 2);
+    r: calc(var(--circleSize) / 2 - 20px);
+}
+
+svg .circle-one {
+    stroke: #ddd;
+}
+
+svg .circle-two {
+    stroke-dasharray: calc(3.141592653589793 * (var(--circleSize) - 40px));
+    stroke-dashoffset: calc(3.141592653589793 * (var(--circleSize) - 40px));
+    transition: stroke-dashoffset 1.2s ease;
+    stroke: #2ecc71;
+}
+
+.circle span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(26px, 3.5vw, 31px);
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+/***** End *****/
+
+.end {
+    width: calc(100% - 60px);
+    height: 12px;
+    background-image: linear-gradient(to left, #2ecc71, yellow 17%, orange 46%, red);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 120px;
+    border-radius: 3px;
+    /* position: relative; */
+}
+
+.end::before {
+    content: '';
+    border-style: solid;
+    border-width: 6px 12px;
+    border-color: transparent #656565 transparent transparent;
+    position: absolute;
+    left: -25px;
+    top: 0;
+}
+
+.end div {
+    position: absolute;
+    height: 38px;
+    background-color: #939393;
+    width: 1.5px;
+    bottom: 12px;
+}
+
+.end div.one {
+    right: 14%;
+}
+
+.end div.two {
+    right: 28%;
+}
+
+.end div.three {
+    right: 50%;
+}
+
+.end div span {
+    position: relative;
+    top: -25px;
+    left: -10px;
+    font-size: clamp(14px, 2vw, 17px);
+    font-weight: bold;
+}
+
+.end div.one span {
+    color: #e4d123;
+}
+
+.end div.two span {
+    color: orange;
+}
+
+.end div.three span {
+    color: #ed2612;
+}
+
+button.reset {
+    width: calc(100% - 60px);
+    height: 50px;
+    background-color: #C63737E8;
+    font-size: 18px;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button.add,
+button.reset {
+    max-width: 350px;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+/***** popup *****/
+
+.popup {
+    width: calc(100% - clamp(20px, 7vw, 60px));
+    height: clamp(180px, 28vw, 200px);
+    background-color: #ddd;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+    border-radius: 5px;
+    padding: 21px;
+    line-height: 1.4;
+    visibility: hidden;
+}
+
+.popup h3 {
+    margin-top: -1px;
+    font-size: clamp(1em, 2.6vw, 1.17em);
+}
+
+.popup .answer {
+    background-color: #C63737E8;
+    position: absolute;
+    width: 100%;
+    height: clamp(40px, 7vw, 50px);
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 21px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.popup .answer button {
+    cursor: pointer;
+    height: clamp(26px, 5vw, 28px);
+    width: clamp(54px, 10vw, 68px);
+    color: white;
+    margin-left: 15px;
+    font-size: clamp(14px, 2.2vw, 16px);
+    background-color: #cd6d6d;
+    outline: none;
+    border: none;
+    border-radius: 1px;
+    font-weight: 550;
+}
+
+.back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
