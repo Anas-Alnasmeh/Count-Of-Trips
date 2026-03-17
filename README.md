@@ -4,6 +4,7 @@
 
 _ Responsive Design
 _ Charts
+\_ Local Storage
 
 ### Technologies:
 
