@@ -1,5 +1,7 @@
 # Count Of Trips
 
+## this project is designed to calculate the percentage of trips taken with friends
+
 ### Features:
 
 _ Responsive Design
