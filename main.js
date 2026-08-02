@@ -60,6 +60,7 @@ btnReset.addEventListener("click", function () {
   popup.style.visibility = "visible";
   back.style.backgroundColor = "#00000087";
   btnNo.addEventListener("click", close);
+  back.addEventListener("click", close);
   btnYes.addEventListener("click", function () {
     close();
     circleTwo.style.transition = "stroke-dashoffset 1.2s ease";
@@ -76,13 +77,16 @@ btnReset.addEventListener("click", function () {
     trip.textContent = countOfTrips;
     circleTwo.style["stroke-dashoffset"] = circumference;
     let count = parseInt(spanOfCircle.textContent);
-    let number = setInterval(function () {
-      if (count == 0) {
-        clearInterval(number);
-        spanOfCircle.style.color = "#2ecc71";
-      }
-      spanOfCircle.textContent = `${count--}%`;
-    }, 15 / Math.ceil(percentage / 100));
+    let number = setInterval(
+      function () {
+        if (count == 0) {
+          clearInterval(number);
+          spanOfCircle.style.color = "#2ecc71";
+        }
+        spanOfCircle.textContent = `${count--}%`;
+      },
+      15 / Math.ceil(percentage / 100),
+    );
   });
 });
 
@@ -103,10 +107,13 @@ function calculate() {
   // }
 
   let count = parseInt(spanOfCircle.textContent);
-  let number = setInterval(() => {
-    if (count == parseInt(percentage)) clearInterval(number);
-    spanOfCircle.textContent = `${count++}%`;
-  }, 15 / Math.ceil(percentage / 100));
+  let number = setInterval(
+    () => {
+      if (count == parseInt(percentage)) clearInterval(number);
+      spanOfCircle.textContent = `${count++}%`;
+    },
+    15 / Math.ceil(percentage / 100),
+  );
 }
 
 function correction() {
